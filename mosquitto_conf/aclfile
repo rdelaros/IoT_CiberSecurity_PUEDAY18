@@ -1,0 +1,18 @@
+topic read #SYS/#
+
+user rpi00
+topic /lego/out/#
+topic read /lego/in/#
+
+user rpi11
+topic read /lego/out/#
+topic  /lego/out/#
+
+user web_server
+topic read /lego/out/#
+topic  /lego/out/#
+
+user web_server2
+topic read /lego/out/#
+topic /lego/in/#
+

@@ -15,9 +15,11 @@ def on_message(mosq, obj, msg):
 	else:
 		r.set(sensor, str(msg.payload.decode('utf-8')).encode('utf-8'))
 
-
 client = mqtt.Client()
-client.connect("localhost")
+#client.tls_set("ca.pem")
+client.tls_set("ca.pem","web_server.pem","web_server.key")
+client.connect("iot.pue.es",8883)
+
 client.subscribe("/lego/out/#",1)
 client.on_message = on_message
 client.loop_start()

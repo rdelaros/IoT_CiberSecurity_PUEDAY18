@@ -9,8 +9,11 @@ r = redis.Redis('localhost',db=0)
 host = "0.0.0.0"
 database="SimpleWeb.db"
 
-client = mqtt.Client("website")
-client.connect_async('iot.pue.es', 1883)
+client = mqtt.Client()
+#client.tls_set("ca.pem")
+client.tls_set("ca.pem","web_server2.pem","web_server2.key")
+client.connect_async('iot.pue.es', 8883)
+
 r = redis.Redis('localhost',db=0)
 
 
